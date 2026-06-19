@@ -18,7 +18,7 @@ wss.on('connection', (ws) => {
         const message = data.toString();
         console.log(`Nhận được dữ liệu: ${message}`);
 
-        // Gửi lại dữ liệu đó cho TẤT CẢ các người chơi khác đang kết nối (Multiplayer)
+        // Gửi lại dữ liệu đó cho TẤT CẢ các người chơi KHÁC đang kết nối
         wss.clients.forEach((client) => {
             if (client !== ws && client.readyState === 1) {
                 client.send(message);
